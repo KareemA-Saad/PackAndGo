@@ -35,7 +35,7 @@ A modern, fully-featured e-commerce website specializing in bags and travel acce
 
 ## 🚀 Live Demo
 
-SOON !! Hosted by firebase or another
+[NetlifyApp](https://packgotrial.netlify.app/)
 
 ## 📁 Project Structure
 
