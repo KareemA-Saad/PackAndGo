@@ -50,7 +50,11 @@
             </div>
             <div class="user-container">
                 <a href="auth/loginForm.html" id="user-link">
-                    <i class="fas fa-user-circle user-icon-z" id="user-icon"></i>
+                    <span id="user-icon-container">
+                        <i class="fas fa-user-circle user-icon-z" id="user-icon-default"></i>
+                        <img id="user-icon-img" class="user-icon-z" src="img/default-user-icon.png" alt="User Icon"
+                            style="display:none; width:32px; height:32px; border-radius:50%; object-fit:cover;" />
+                    </span>
                     <span id="login-text">Log in</span>
                 </a>
                 <div class="user-menu">
@@ -137,26 +141,27 @@
 
             <div class="btns no-print">
                 <button onclick="printInvoice()" class="print-btn">Print</button>
-                <button onclick="document.getElementById('invoicePopup').style.display='none'" class="close-btn">Close</button>
+                <button onclick="document.getElementById('invoicePopup').style.display='none'"
+                    class="close-btn">Close</button>
             </div>
         </div>
     </div>
 
 
     <script src="./js/header.js"></script>
+    <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/cart-item.js"></script>
     <script type="module" src="./js/checkout.js"></script>
-    <script type="module" src="./js/index.js"></script>
     <script
         src="https://www.paypal.com/sdk/js?client-id=AetKA9kClRz7soGgtNi9mIyzYV-A594ENviFY5SX0xPm5zr5he4LoObadbUZ1njQmHw3xpw9JGEIhb_z&disable-funding=card"></script>
     <script type="module" src="./js/payment.js"></script>
+    <script type="module" src="./js/getProductDetails.js"></script>
 
     <script>
         function printInvoice() {
             window.print();
         }
     </script>
-    <script type="module" src="./js/getProductDetails.js"></script>
 </body>
 
 </html>

@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pack-Go</title>
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart"
-    />
-    <!-- fontawesome link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/home.css" />
-    <link rel="stylesheet" href="./css/cart-item.css">
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pack-Go</title>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart" />
+  <!-- fontawesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <link rel="stylesheet" href="./css/animate.css">
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/home.css" />
+  <link rel="stylesheet" href="./css/cart-item.css">
+</head>
 
 
 <body>
@@ -61,7 +55,11 @@
       </div>
       <div class="user-container">
         <a href="auth/loginForm.html" id="user-link">
-          <i class="fas fa-user-circle user-icon-z" id="user-icon"></i>
+          <span id="user-icon-container">
+            <i class="fas fa-user-circle user-icon-z" id="user-icon-default"></i>
+            <img id="user-icon-img" class="user-icon-z" src="img/default-user-icon.png" alt="User Icon"
+              style="display:none; width:32px; height:32px; border-radius:50%; object-fit:cover;" />
+          </span>
           <span id="login-text">Log in</span>
         </a>
         <div class="user-menu">
@@ -135,7 +133,8 @@
     <div class="sale-flex-z">
 
       <div id="sale-flex" class="sale-flex-z">
-        <div class="product-z product-1-z wow bounceInRight" data-wow-delay="0.8s" id="product-template" style="display:none;">
+        <div class="product-z product-1-z wow bounceInRight" data-wow-delay="0.8s" id="product-template"
+          style="display:none;">
           <img src="" alt="">
           <div class="product-content-z">
             <h3></h3>
@@ -148,46 +147,33 @@
 
     </div>
     <div id="about" class="about-z">
-        <div class="about-left-z">
-            <div class="content-z wow bounceInRight" data-wow-delay="0.6s">
-                <h1>ABOUT US</h1>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
-                    Just click “Edit Text” or double click me to add your own content and make changes to the font.
-                    I’m a great place for you to tell a story and let your users know a little more about you.
-                </p>
-          </div>
-
-
+      <div class="about-left-z">
+        <div class="content-z wow bounceInRight" data-wow-delay="0.6s">
+          <h1>ABOUT US</h1>
+          <p>I'm a paragraph. Click here to add your own text and edit me. It's easy.
+            Just click "Edit Text" or double click me to add your own content and make changes to the font.
+            I'm a great place for you to tell a story and let your users know a little more about you.
+          </p>
         </div>
+
 
       </div>
+
     </div>
-    <div class="contact-z" id="contact">
-        <div class="inputs-z">
-            <div class="first-input-z">
-                <label for="firstname" id="none-z">Full Name</label>
-                <label for="firstname" id="r-block-z">Full Name</label> <br>
-                <input type="text" name="firstname" class="name-z"> <br>
-                <label for="email">Email*</label> <br>
-                <input type="email" name="email"><br>
-                <label for="subject">Subject</label> <br>
-                <input class="subject-z" type="text" name="subject"><br>
-                <label for="msg">Message</label> <br>
-                <textarea name="msg" id=""></textarea><br>
-                <input type="submit" class="button-z" value="SUBMIT">
-            </div>
-        </div>
-        <div class="contact-content-z">
-            <h1>CONTACT</h1>
-            <p>I'm a paragraph. Click here to add your own text and edit me.
-                I’m a great place for you to tell a story and let your users know a little more about you.
-            </p>
-            <p>info@my-domain.com <br>
-                Tel: 1-800-000-0000
-            </p>
-
-        </div>
-
+  </div>
+  <div class="contact-z" id="contact">
+    <div class="inputs-z">
+      <div class="first-input-z">
+        <label for="firstname" id="none-z">Full Name</label>
+        <label for="firstname" id="r-block-z">Full Name</label> <br>
+        <input type="text" name="firstname" class="name-z"> <br>
+        <label for="email">Email*</label> <br>
+        <input type="email" name="email"><br>
+        <label for="subject">Subject</label> <br>
+        <input class="subject-z" type="text" name="subject"><br>
+        <label for="msg">Message</label> <br>
+        <textarea name="msg" id=""></textarea><br>
+        <input type="submit" class="button-z" value="SUBMIT">
       </div>
     </div>
     <div class="contact-content-z">
@@ -200,6 +186,19 @@
       </p>
 
     </div>
+
+  </div>
+  </div>
+  <div class="contact-content-z">
+    <h1>CONTACT</h1>
+    <p>I'm a paragraph. Click here to add your own text and edit me.
+      I'm a great place for you to tell a story and let your users know a little more about you.
+    </p>
+    <p>info@my-domain.com <br>
+      Tel: 1-800-000-0000
+    </p>
+
+  </div>
   </div>
   </div>
   </div>
@@ -213,17 +212,17 @@
         <i style="color: #E1306C;" class="fab fa-instagram"></i>
         <i style="color: #FF0000;" class="fab fa-youtube"></i>
       </div>
-    </footer>
-    <script src="./js/header.js"></script>
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/home-product.js"></script>
-    <script src="./js/home-category.js"></script>
-    <script type="module" src="./js/cart-item.js"></script>
-    <script type="module" src="./js/getProductDetails.js"></script>
-    <script src="./js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
+  </footer>
+  <script src="./js/header.js"></script>
+  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/home-product.js"></script>
+  <script src="./js/home-category.js"></script>
+  <script type="module" src="./js/cart-item.js"></script>
+  <script type="module" src="./js/getProductDetails.js"></script>
+  <script src="./js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
 
 </body>
 
