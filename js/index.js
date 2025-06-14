@@ -7,8 +7,32 @@ const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-        await signOut(auth);
-        window.location.reload();
+        try {
+            // Get current user's cart from Firestore before signing out
+            const currentUser = auth.currentUser;
+            if (currentUser) {
+                // Clear only the local storage cart
+                localStorage.removeItem('cart');
+
+                // Update UI elements
+                const cartCount = document.getElementById('cart-count');
+                if (cartCount) {
+                    cartCount.textContent = '0';
+                }
+
+                const cartContainer = document.querySelector('.cart-item-container');
+                if (cartContainer) {
+                    cartContainer.innerHTML = '<p style="color:#fff">Your cart is empty.</p>';
+                }
+            }
+
+            // Sign out
+            await signOut(auth);
+            window.location.reload();
+        } catch (error) {
+            console.error('Error during logout:', error);
+            alert('Error during logout. Please try again.');
+        }
     });
 }
 

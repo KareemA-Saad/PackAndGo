@@ -30,8 +30,8 @@
       <a href="./index.html">Home</a>
       <a href="./shop.html">Shop</a>
       <a href="index.html#sale">Sale</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#contact">Contact</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
       <!--  <a href="auth/loginForm.html" id="user-link">
            <img id="user-icon" src="img/default-user-icon.png" alt="User Icon" class="user-icon-z" />
             <span id="login-text">Log in</span>
@@ -52,7 +52,11 @@
       </div>
       <div class="user-container">
         <a href="auth/loginForm.html" id="user-link">
-          <i class="fas fa-user-circle user-icon-z" id="user-icon"></i>
+          <span id="user-icon-container">
+            <i class="fas fa-user-circle user-icon-z" id="user-icon-default"></i>
+            <img id="user-icon-img" class="user-icon-z" src="img/default-user-icon.png" alt="User Icon"
+              style="display:none; width:32px; height:32px; border-radius:50%; object-fit:cover;" />
+          </span>
           <span id="login-text">Log in</span>
         </a>
         <div class="user-menu">
@@ -130,15 +134,15 @@
         <i style="color: #E1306C;" class="fab fa-instagram"></i>
         <i style="color: #FF0000;" class="fab fa-youtube"></i>
       </div>
-    </footer>
+  </footer>
 
   <script src="./js/header.js"></script>
   <script type="module" src="js/index.js"></script>
+  <script type="module" src="./js/cart-item.js"></script>
   <script type="module" src="./js/shop.js"></script>
   <script type="module" src="./js/sortInShop.js"></script>
   <script type="module" src="./js/filtershop.js"></script>
   <script type="module" src="./js/search.js"></script>
-  <script type="module" src="./js/cart-item.js"></script>
   <script type="module" src="./js/getProductDetails.js"></script>
 </body>
 
