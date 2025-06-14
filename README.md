@@ -156,7 +156,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Kareem A. Saad**
 - GitHub: [@KareemA-Saad](https://github.com/KareemA-Saad)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- LinkedIn: [@Kareem Ahmed Saad](https://www.linkedin.com/in/kareem-ahmed-saad-dev/)
 
 ## 🙏 Acknowledgments
 
