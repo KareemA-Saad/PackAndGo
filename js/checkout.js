@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db, app } from "./firebase-config.js";
 import { updateCartCount } from "./cart-item.js";
 let auth = getAuth(app);
-let currentUserId = null; 
+let currentUserId = null;
 
 async function removeItemFromFirestoreAndLocal(docId, id, color, userId) {
   try {
@@ -12,7 +12,7 @@ async function removeItemFromFirestoreAndLocal(docId, id, color, userId) {
     cart = cart.filter(item => !(item.id === id && item.color === color));
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    await displayCartItems(userId);  
+    await displayCartItems(userId);
   } catch (error) {
     alert("Error while deleting item Please Try again");
   }
@@ -35,7 +35,7 @@ async function displayCartItems(userId) {
     let q = query(collection(db, "carts"), where("userId", "==", userId));
     let querySnapshot = await getDocs(q);
     let cart = [];
-    
+
     querySnapshot.forEach((docSnap) => {
       let data = docSnap.data();
       data._id = docSnap.id;
@@ -56,6 +56,10 @@ async function displayCartItems(userId) {
       itemDiv.style.justifyContent = "space-between";
       itemDiv.style.marginBottom = "10px";
 
+      let priceBeforeDiscount = parseFloat(item.price);
+      let discount = parseFloat(item.discountPercentage);
+      let priceAfterDiscount = (priceBeforeDiscount * (1 - discount / 100)).toFixed(2);
+
       itemDiv.innerHTML = `
         <div class="cart-z-content" style="display:flex; align-items:center; gap:10px;">
           <img src="${item.image}" alt="${item.title}" style="width:80px; height:80px; object-fit:cover;" />
@@ -74,10 +78,10 @@ async function displayCartItems(userId) {
               <input type="number" min="1" value="${item.quantity}" 
                       class="quantity-input" 
                       data-docid="${item._id}" 
-                      data-price="${item.price}" 
+                      data-price="${priceAfterDiscount}" 
                       style="width: 50px; padding: 2px; border: 1.5px solid #ccc; border-radius: 7px;"/>
             </p>
-            <p>Item-Price : $${item.price}</p>
+            <p>Item-Price : $${priceAfterDiscount} <span style="text-decoration: line-through; color: #999;">$${priceBeforeDiscount}</span></p>
           </div>
         </div>
         <button class="delete-btn"
@@ -93,7 +97,13 @@ async function displayCartItems(userId) {
       container.appendChild(itemDiv);
     });
 
-    let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    let totalPrice = cart.reduce((sum, item) => {
+      let priceBeforeDiscount = parseFloat(item.price);
+      let discount = parseFloat(item.discountPercentage);
+      let priceAfterDiscount = priceBeforeDiscount * (1 - discount / 100);
+      return sum + (priceAfterDiscount * item.quantity);
+    }, 0);
+
     let totalDiv = document.createElement("div");
     totalDiv.style.marginTop = "20px";
     totalDiv.style.fontWeight = "bold";
@@ -143,8 +153,8 @@ async function displayCartItems(userId) {
         await displayCartItems(userId);
       } catch (error) {
         console.error("Failed to update quantity Try again");
-      } 
-        isUpdating = false;
+      }
+      isUpdating = false;
     }
 
     container.querySelectorAll(".quantity-input").forEach(input => {
